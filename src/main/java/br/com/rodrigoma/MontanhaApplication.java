@@ -11,8 +11,6 @@ import java.util.Arrays;
 @SpringBootApplication
 public class MontanhaApplication {
 
-    // TODO 02 Annotation and Run
-
     private static final Logger LOGGER = LoggerFactory.getLogger(MontanhaApplication.class);
 
     public static void main(String[] args) {

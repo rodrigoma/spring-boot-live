@@ -22,9 +22,6 @@
     </properties>
 
     <dependencies>
-
-        <!-- TODO 01 Dependencias, maven, embedded tomcat -->
-
         <!--Spring-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -37,6 +34,23 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- TODO 02 Restassured MVC, JsonSchema -->
+
+        <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>2.9.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>2.9.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
