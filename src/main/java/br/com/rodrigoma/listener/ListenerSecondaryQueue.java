@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ListenerSecondaryQueue {
 
-    // TODO 05 The SendTO
-
     private static final Logger LOGGER = LoggerFactory.getLogger(ListenerSecondaryQueue.class);
 
     //@formatter:off

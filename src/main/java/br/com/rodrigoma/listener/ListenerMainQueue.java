@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ListenerMainQueue {
 
-    // TODO 04 The Listener
-
     private static final Logger LOGGER = LoggerFactory.getLogger(ListenerMainQueue.class);
 
     //@formatter:off

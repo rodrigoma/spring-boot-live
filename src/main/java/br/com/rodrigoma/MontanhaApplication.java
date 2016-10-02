@@ -13,8 +13,6 @@ import java.util.Arrays;
 @EnableRabbit
 public class MontanhaApplication {
 
-    // TODO 03 Annotation @EnableRabbit
-
     private static final Logger LOGGER = LoggerFactory.getLogger(MontanhaApplication.class);
 
     public static void main(String[] args) {

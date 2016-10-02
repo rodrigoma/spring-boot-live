@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/techtalk")
 public class ListenerController {
 
-    // TODO 06 RabbitTemplate to send
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
