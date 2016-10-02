@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/techtalk")
 public class ApiControlers {
 
-    //TODO 01 Rest, Annotation, Postman
-
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity get(@RequestParam("date") final String date) {
 

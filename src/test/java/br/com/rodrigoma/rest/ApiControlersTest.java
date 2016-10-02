@@ -19,8 +19,6 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest(classes = ApiControlers.class)
 public class ApiControlersTest {
 
-    // TODO 03 Annotation, RestAssured/MockMvc, JsonSchema
-
     @Autowired
     private WebApplicationContext webApplicationContext;
 
