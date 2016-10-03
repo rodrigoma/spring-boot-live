@@ -12,8 +12,6 @@ import java.util.Optional;
 @RequestMapping("/techtalk")
 public class RedisController {
 
-    // TODO 03 List of Beans, StringRedisTemplate
-
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
