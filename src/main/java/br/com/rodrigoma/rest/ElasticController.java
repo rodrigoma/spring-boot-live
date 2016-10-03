@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/techtalk")
 public class ElasticController {
 
-    // TODO 04 Rest for elastic slide
-
     @Autowired
     private ElasticRepository elasticRepository;
 

@@ -19,8 +19,6 @@ public class ElasticRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ElasticRepository.class);
 
-    // TODO 03 Indexing and Querying using Jest
-
     @Autowired
     private JestClient jestClient;
 

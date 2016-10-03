@@ -32,7 +32,12 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
-        <!-- TODO 01 Dependency JestClient -->
+        <!-- TODO 01 Dependency Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>io.searchbox</groupId>
             <artifactId>jest</artifactId>
