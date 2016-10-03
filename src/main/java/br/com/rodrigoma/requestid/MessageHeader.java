@@ -12,8 +12,6 @@ public abstract class MessageHeader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MessageHeader.class);
 
-    // TODO 03 Message Header
-
     public static final String X_REQUEST_ID_HEADER = "X-Request-Id";
     public static final String REQUEST_ID_LOG = "request_id";
 

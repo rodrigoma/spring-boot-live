@@ -40,7 +40,25 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- TODO 06 Dependency for LOG in ELK -->
+        <!-- TODO 01a Dependency Actuator ADMIN -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-server</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-server-ui</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
+        <!-- TODO 01b Dependency Actuator CLIENT -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
         <dependency>
             <groupId>com.cwbase</groupId>
             <artifactId>logback-redis-appender</artifactId>

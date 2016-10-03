@@ -15,8 +15,6 @@ public class ListenerController extends MessageHeader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ListenerController.class);
 
-    // TODO 05 Using MessageHeader in send menssage
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
 

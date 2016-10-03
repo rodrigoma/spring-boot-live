@@ -11,8 +11,6 @@ import java.util.UUID;
 
 public class RequestIdHeaderFilter implements Filter {
 
-    // TODO 01 Create Filter
-
     private static final Logger LOGGER = LoggerFactory.getLogger(RequestIdHeaderFilter.class);
 
     public static final String X_REQUEST_ID_HEADER = "X-Request-Id";

@@ -9,8 +9,6 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <jmxConfigurator/>
 
-    <!-- TODO 07 ELK Configuration -->
-
     <appender name="LOGSTASH" class="com.cwbase.logback.RedisAppender">
         <host>${beaverHost}</host>
         <port>${beaverPort}</port>

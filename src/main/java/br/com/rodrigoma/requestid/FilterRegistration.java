@@ -8,8 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FilterRegistration {
 
-    // TODO 02 Register Filter
-
     @Bean
     public FilterRegistrationBean requestIdHeaderFilter() {
         FilterRegistrationBean filterRegBean = new FilterRegistrationBean();
@@ -25,7 +23,7 @@ public class FilterRegistration {
     public FilterRegistrationBean mdcInsertingServletFilter() {
         FilterRegistrationBean filterRegBean = new FilterRegistrationBean();
         filterRegBean.setFilter(new MDCInsertingServletFilter());
-        filterRegBean.addUrlPatterns("/v2/*", "/internal/*");
+        filterRegBean.addUrlPatterns("/techtalk/*");
         filterRegBean.setName("mdcInsertingServletFilter");
         filterRegBean.setOrder(1);
 

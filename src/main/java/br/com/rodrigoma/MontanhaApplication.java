@@ -1,5 +1,6 @@
 package br.com.rodrigoma;
 
+import de.codecentric.boot.admin.config.EnableAdminServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
@@ -11,7 +12,10 @@ import java.util.Arrays;
 
 @SpringBootApplication
 @EnableRabbit
+@EnableAdminServer
 public class MontanhaApplication {
+
+    // TODO 02 Annotation
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MontanhaApplication.class);
 

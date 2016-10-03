@@ -15,8 +15,6 @@ public class ListenerMainQueue extends MessageHeader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ListenerMainQueue.class);
 
-    // TODO 04a Using MessageHeader in Listener
-
     //@formatter:off
     @RabbitListener(bindings = {
             @QueueBinding(
