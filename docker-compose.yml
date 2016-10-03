@@ -1,0 +1,31 @@
+version: '2'
+services:
+  live:
+    image: rodrigoma/spring-boot-live
+    container_name: spring-boot-live
+    volumes:
+      - .:/spring-boot-live
+    environment:
+      TIMEZONE: America/Sao_Paulo
+      ENVIRONMENT: dev
+      AMQP_URL: amqp://guest:guest@rabbitmq:5672
+      ELASTIC_URL: http://elasticsearch:9200
+      REDIS_HOST: 'redis'
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+      DB_URL: 'jdbc:mysql://mysql:3306/techtalk?autoReconnect=true&useSSL=false'
+      DB_USER: root
+      DB_PASS: root
+      BEAVER_KEY: logstash
+      ADMIN_PATH: '/adm'
+      ADMIN_ACTUADOR_URL: 'http://localhost:8080/adm'
+    ports:
+      - "8080:8080"
+    external_links:
+      - rabbitmq
+      - elasticsearch
+      - redis
+      - mysql
+    network_mode: bridge
+
+# TODO 02 docker-compose

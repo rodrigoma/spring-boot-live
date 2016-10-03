@@ -15,8 +15,6 @@ import java.util.Arrays;
 @EnableAdminServer
 public class MontanhaApplication {
 
-    // TODO 02 Annotation
-
     private static final Logger LOGGER = LoggerFactory.getLogger(MontanhaApplication.class);
 
     public static void main(String[] args) {
