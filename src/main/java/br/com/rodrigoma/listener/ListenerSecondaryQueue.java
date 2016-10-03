@@ -1,5 +1,6 @@
 package br.com.rodrigoma.listener;
 
+import br.com.rodrigoma.requestid.MessageHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Message;
@@ -11,9 +12,11 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ListenerSecondaryQueue {
+public class ListenerSecondaryQueue extends MessageHeader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ListenerSecondaryQueue.class);
+
+    // TODO 04b Using MessageHeader in Listener
 
     //@formatter:off
     @RabbitListener(bindings = {
@@ -24,10 +27,12 @@ public class ListenerSecondaryQueue {
     })
     @SendTo("moip/tech.talk.main.example")
     //@formatter:on
-    public String secondQueue(Message message) {
+    public Message secondQueue(Message message) {
+        resolvingMDC(message);
+
         String json = new String(message.getBody());
         LOGGER.info("SECONDARY QUEUE: {}", json);
 
-        return json;
+        return createMessage(json);
     }
 }

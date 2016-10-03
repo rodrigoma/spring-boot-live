@@ -1,5 +1,8 @@
 package br.com.rodrigoma.rest;
 
+import br.com.rodrigoma.requestid.MessageHeader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -8,7 +11,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/techtalk")
-public class ListenerController {
+public class ListenerController extends MessageHeader {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ListenerController.class);
+
+    // TODO 05 Using MessageHeader in send menssage
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -17,10 +24,12 @@ public class ListenerController {
     public ResponseEntity listenerGet(@RequestParam("date") final String date) {
         String json = toJson("Teste", date);
 
+        LOGGER.info("LISTENER: GET {}", date);
+
         rabbitTemplate.convertAndSend(
                 "moip",
                 "tech.talk.secondary.example",
-                json);
+                createMessage(json));
 
         return ResponseEntity.ok(json);
     }
@@ -30,10 +39,12 @@ public class ListenerController {
                                @RequestParam("date") final String date) {
         String json = toJson(title, date);
 
+        LOGGER.info("LISTENER: POST [{}, {}]", title, date);
+
         rabbitTemplate.convertAndSend(
                 "moip",
                 "tech.talk.main.example",
-                json);
+                createMessage(json));
 
         return ResponseEntity.ok(json);
     }

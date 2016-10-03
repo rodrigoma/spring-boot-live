@@ -1,5 +1,6 @@
 package br.com.rodrigoma.listener;
 
+import br.com.rodrigoma.requestid.MessageHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Message;
@@ -10,9 +11,11 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ListenerMainQueue {
+public class ListenerMainQueue extends MessageHeader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ListenerMainQueue.class);
+
+    // TODO 04a Using MessageHeader in Listener
 
     //@formatter:off
     @RabbitListener(bindings = {
@@ -23,6 +26,8 @@ public class ListenerMainQueue {
     })
     //@formatter:on
     public void mainQueue(Message message) {
+        resolvingMDC(message);
+
         String json = new String(message.getBody());
         LOGGER.info("MAIN QUEUE: {}", json);
     }

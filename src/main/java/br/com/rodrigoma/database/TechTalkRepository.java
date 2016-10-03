@@ -10,10 +10,6 @@ import java.util.List;
 @Transactional
 public interface TechTalkRepository extends JpaRepository<TechTalk, Long> {
 
-    // TODO 04 Repository, JpaRepository, finds
-
-    // http://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
-
     List<TechTalk> findByAuthor(String author);
 
     List<TechTalk> findByDurationGreaterThan(int duration);

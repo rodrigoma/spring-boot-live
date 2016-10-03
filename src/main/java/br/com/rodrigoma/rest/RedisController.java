@@ -1,5 +1,7 @@
 package br.com.rodrigoma.rest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
@@ -12,6 +14,8 @@ import java.util.Optional;
 @RequestMapping("/techtalk")
 public class RedisController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(RedisController.class);
+
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -19,6 +23,8 @@ public class RedisController {
     public ResponseEntity redisPost(@RequestParam("title") final String title,
                                     @RequestParam("date") final String date) {
         String json = toJson(title, date);
+
+        LOGGER.info("REDIS: POST [{}, {}]", title, date);
 
         stringRedisTemplate.opsForHash().put("techtalk:schedules", title, date);
 
@@ -30,6 +36,8 @@ public class RedisController {
         String date = (String) Optional
                 .ofNullable(stringRedisTemplate.opsForHash().get("techtalk:schedules", title))
                 .orElse("0000-00-00");
+
+        LOGGER.info("REDIS: GET [{}, {}]", title, date);
 
         return ResponseEntity.ok(toJson(title, date));
     }

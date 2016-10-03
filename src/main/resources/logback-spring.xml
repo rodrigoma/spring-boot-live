@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty scope="local" name="beaverHost"  source="spring.redis.host"/>
+    <springProperty scope="local" name="beaverPort"  source="spring.redis.port"/>
+    <springProperty scope="local" name="beaverKey"   source="beaver.key"/>
+    <springProperty scope="local" name="environment" source="spring.profiles.active"/>
+    <springProperty scope="local" name="appName"     source="spring.application.name"/>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <jmxConfigurator/>
+
+    <!-- TODO 07 ELK Configuration -->
+
+    <appender name="LOGSTASH" class="com.cwbase.logback.RedisAppender">
+        <host>${beaverHost}</host>
+        <port>${beaverPort}</port>
+        <key>${beaverKey}</key>
+
+        <layout class="com.cwbase.logback.JSONEventLayout">
+            <!--Unique Key App-->
+            <additionalField>
+                <key>application</key>
+                <value>${appName}</value>
+            </additionalField>
+            <additionalField>
+                <key>environment</key>
+                <value>${environment}</value>
+            </additionalField>
+            <!--Unique Key each request-->
+            <additionalField>
+                <key>request_id</key>
+                <value>@{request_id}</value>
+            </additionalField>
+            <!--Info request-->
+            <additionalField>
+                <key>remote_host</key>
+                <value>@{req.remoteHost}</value>
+            </additionalField>
+            <additionalField>
+                <key>request_uri</key>
+                <value>@{req.requestURI}</value>
+            </additionalField>
+            <additionalField>
+                <key>query_string</key>
+                <value>@{req.queryString}</value>
+            </additionalField>
+            <additionalField>
+                <key>request_url</key>
+                <value>@{req.requestURL}</value>
+            </additionalField>
+            <additionalField>
+                <key>request_method</key>
+                <value>@{req.method}</value>
+            </additionalField>
+            <additionalField>
+                <key>user_agent</key>
+                <value>@{req.userAgent}</value>
+            </additionalField>
+            <additionalField>
+                <key>x_forwarded_for</key>
+                <value>@{req.xForwardedFor}</value>
+            </additionalField>
+        </layout>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="LOGSTASH" />
+    </root>
+</configuration>

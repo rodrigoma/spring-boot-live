@@ -6,8 +6,6 @@ import javax.persistence.*;
 @Table(name = "techtalk")
 public class TechTalk {
 
-    // TODO 03 A Common entity
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
